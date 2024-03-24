@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pytest-uncollect-if"
 description = "A plugin to uncollect pytests tests rather than using skipif"
-version = "0.1.1"
+version = "0.1.2"
 readme = "README.rst"
 requires-python = ">=3.9"
 authors = [

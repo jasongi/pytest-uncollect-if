@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.2 2024-03-24
+- explicitly export uncollect_if
+
 ## 0.1.1 2024-03-24
 - fix entrypoint
 
