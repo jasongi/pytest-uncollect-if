@@ -1,0 +1,10 @@
+site_name: pytest-uncollect-if
+site_description: A plugin to uncollect pytests tests rather than using skipif
+site_author: Jason Giancono
+
+theme: readthedocs
+
+repo_url: https://github.com/jasongi/pytest-uncollect-if
+
+pages:
+- Home: index.md
