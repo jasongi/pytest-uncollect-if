@@ -14,37 +14,66 @@ pytest-uncollect-if
     :target: https://github.com/jasongi/pytest-uncollect-if/actions/workflows/main.yml
     :alt: See Build Status on GitHub Actions
 
-A plugin to uncollect pytests tests rather than using skipif
-
 ----
 
+A pytest plugin to uncollect tests based on a condition without the tests being included in the `skipped` for `deselected` report counts. This makes it easier use the `Cartesian product`_ of two different usages of `pytest.mark.parametrize`_ where you want to disable a specific combination.
+
 This `pytest`_ plugin was generated with `Cookiecutter`_ along with `@hackebrot`_'s `cookiecutter-pytest-plugin`_ template.
-
-
-Features
---------
-
-* TODO
 
 
 Requirements
 ------------
 
-* TODO
+* pytest > 6.2.0
+
+For development requirements, run
+
+.. code-block:: bash
+
+    pip install -r requirements-dev.txt
 
 
 Installation
 ------------
 
-You can install "pytest-uncollect-if" via `pip`_ from `PyPI`_::
+You can install "pytest-uncollect-if" via `pip`_ from `PyPI`_
 
-    $ pip install pytest-uncollect-if
+.. code-block:: bash
+
+    pip install pytest-uncollect-if
 
 
 Usage
 -----
+The marker takes a single argument :code:`func` which accepts parameters as :code:`**kwargs` and returns a boolean value. If the return value is :code:`True`, the test will be uncollected.
+To avoid fragile statements that fail on extra parameters, be sure to add :code:`**kwargs` to your function signature.
 
-* TODO
+.. code-block:: python
+
+    param1_decorator = pytest.mark.parametrize("param1", [1, 2, 3, 4])
+    param2_decorator = pytest.mark.parametrize("param2", [1, 2, 3, 4])
+
+
+    # uncollect if param and param2 are equal
+    @pytest.mark.uncollect_if(func=lambda param1, param2, **kwargs: param1 == param2)
+    def test_uncollect_if(param1, param2):
+        assert param != param2
+
+A typed alias for :code:`pytest.mark.uncollect_if` is available as :code:`uncollect_if`
+
+.. code-block:: python
+
+    from pytest_uncollect_if import uncollect_if
+
+    param1_decorator = pytest.mark.parametrize("param1", [1, 2, 3, 4])
+    param2_decorator = pytest.mark.parametrize("param2", [1, 2, 3, 4])
+
+
+    # uncollect if param and param2 are equal
+    @uncollect_if(func=lambda param1, param2, **kwargs: param1 == param2)
+    def test_uncollect_if(param1, param2):
+        assert param != param2
+
 
 Contributing
 ------------
@@ -62,15 +91,15 @@ Issues
 
 If you encounter any problems, please `file an issue`_ along with a detailed description.
 
+.. _`@jasongi`: https://github.com/jasongi
 .. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
 .. _`@hackebrot`: https://github.com/hackebrot
 .. _`MIT`: https://opensource.org/licenses/MIT
-.. _`BSD-3`: https://opensource.org/licenses/BSD-3-Clause
-.. _`GNU GPL v3.0`: https://www.gnu.org/licenses/gpl-3.0.txt
-.. _`Apache Software License 2.0`: https://www.apache.org/licenses/LICENSE-2.0
 .. _`cookiecutter-pytest-plugin`: https://github.com/pytest-dev/cookiecutter-pytest-plugin
 .. _`file an issue`: https://github.com/jasongi/pytest-uncollect-if/issues
 .. _`pytest`: https://github.com/pytest-dev/pytest
 .. _`tox`: https://tox.readthedocs.io/en/latest/
 .. _`pip`: https://pypi.org/project/pip/
 .. _`PyPI`: https://pypi.org/project
+.. _`Cartesian product`: https://en.wikipedia.org/wiki/Cartesian_product
+.. _`pytest.mark.parametrize`: https://docs.pytest.org/en/stable/reference/reference.html#pytest-mark-parametrize

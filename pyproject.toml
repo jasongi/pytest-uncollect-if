@@ -9,7 +9,7 @@ name = "pytest-uncollect-if"
 description = "A plugin to uncollect pytests tests rather than using skipif"
 version = "0.1.0"
 readme = "README.rst"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 authors = [
     { name = "Jason Giancono", email = "jasongiancono@gmail.com" },
 ]
@@ -24,7 +24,6 @@ classifiers = [
     "Topic :: Software Development :: Testing",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -39,5 +38,9 @@ dependencies = [
 ]
 [project.urls]
 Repository = "https://github.com/jasongi/pytest-uncollect-if"
+
 [project.entry-points.pytest11]
 django = "pytest_uncollect_if.plugin"
+
+[tool.mypy]
+files = "src"
