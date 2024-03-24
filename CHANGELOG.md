@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.1 2024-03-24
+- fix entrypoint
+
 ## 0.1.0 2024-03-24
 - initial release
 - added uncollect_if custom marker

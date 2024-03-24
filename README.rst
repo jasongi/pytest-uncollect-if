@@ -42,6 +42,12 @@ You can install "pytest-uncollect-if" via `pip`_ from `PyPI`_
 
     pip install pytest-uncollect-if
 
+If you do not have `autoload`_ enabled, add the plugin to your top-level conftest.py
+
+.. code-block:: python
+
+    pytest_plugins = ("pytest_uncollect_if.plugin",)
+
 
 Usage
 -----
@@ -102,3 +108,4 @@ If you encounter any problems, please `file an issue`_ along with a detailed des
 .. _`PyPI`: https://pypi.org/project
 .. _`Cartesian product`: https://en.wikipedia.org/wiki/Cartesian_product
 .. _`pytest.mark.parametrize`: https://docs.pytest.org/en/stable/reference/reference.html#pytest-mark-parametrize
+.. _`autoload`: https://docs.pytest.org/en/7.1.x/reference/reference.html#envvar-PYTEST_DISABLE_PLUGIN_AUTOLOAD
