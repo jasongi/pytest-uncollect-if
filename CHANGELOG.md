@@ -1,4 +1,6 @@
 # Changelog
+## 0.1.3 2024-12-26
+- support python 3.13
 
 ## 0.1.2 2024-03-24
 - explicitly export uncollect_if
