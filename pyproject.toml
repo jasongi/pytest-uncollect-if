@@ -7,9 +7,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pytest-uncollect-if"
 description = "A plugin to uncollect pytests tests rather than using skipif"
-version = "0.1.3"
+version = "0.1.4"
 readme = "README.rst"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 authors = [
     { name = "Jason Giancono", email = "jasongiancono@gmail.com" },
 ]
@@ -24,11 +24,11 @@ classifiers = [
     "Topic :: Software Development :: Testing",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",

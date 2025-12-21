@@ -33,6 +33,15 @@ For development requirements, run
     pip install -r requirements-dev.txt
 
 
+Versioning policy
+-----------------
+
+We follow semantic versioning with the following support policy:
+unsupported Python versions are dropped after their EOL date. When
+dropping support for an unsupported Python version, we only
+bump a patch version.
+
+
 Installation
 ------------
 

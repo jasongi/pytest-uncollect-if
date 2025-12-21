@@ -1,4 +1,8 @@
 # Changelog
+## 0.1.4 2025-12-21
+- add python 3.14 support
+- drop python 3.9 support
+
 ## 0.1.3 2024-12-26
 - support python 3.13
 
