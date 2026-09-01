@@ -1,5 +1,5 @@
-from collections.abc import Generator
-from typing import Any, Callable, Optional, Union
+from collections.abc import Callable, Generator
+from typing import Any
 
 import pytest
 from pytest import Collector, CollectReport, Function, Item, MarkDecorator, hookimpl
@@ -17,11 +17,11 @@ def pytest_configure(config):
 @hookimpl(hookwrapper=True)
 def pytest_make_collect_report(
     collector: Collector,
-) -> Generator[Optional[CollectReport], Any, None]:
+) -> Generator[CollectReport | None, Any, None]:
     outcome = yield None
-    report: Optional[CollectReport] = outcome.get_result()
+    report: CollectReport | None = outcome.get_result()
     if report:
-        kept: list[Union[Collector, Item]] = []
+        kept: list[Collector | Item] = []
         for item in report.result:
             if isinstance(item, Function):
                 m = item.get_closest_marker("uncollect_if")
